@@ -8,25 +8,25 @@ using PadelAPI.Queries;
 namespace PadelAPI.Controllers
 {
     [ApiController]
-    [Route("api/padel")]
-    public class PadelController : ControllerBase
+    [Route("api/padelsession")]
+    public class PadelSessionController : ControllerBase
     {
         private readonly IMediator _mediator;
 
-        public PadelController(IMediator mediator)
+        public PadelSessionController(IMediator mediator)
         {
             _mediator = mediator;
         }
 
         [HttpGet]
-        public async Task<IEnumerable<Padel>> GetAllPadelSessions()
+        public async Task<IEnumerable<PadelSession>> GetAllPadelSessions()
         {
             var query = new GetAllPadelSessionsQuery();
             return await _mediator.Send(query);
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Padel>> GetPadelSessionById(Guid id)
+        public async Task<ActionResult<PadelSession>> GetPadelSessionById(Guid id)
         {
             var query = new GetPadelSessionByIdQuery(id);
             var padelSession = await _mediator.Send(query);
@@ -47,7 +47,7 @@ namespace PadelAPI.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdatePadelSession(Guid id, [FromBody] Padel updatedPadel)
+        public async Task<IActionResult> UpdatePadelSession(Guid id, [FromBody] PadelSession updatedPadel)
         {
             try
             {
@@ -64,6 +64,20 @@ namespace PadelAPI.Controllers
             {
                 return StatusCode(500, "Internal server error");
             }
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<PadelSession>> DeletePadelSession(Guid id)
+        {
+            var command = new DeletePadelSessionCommand(id);
+            var deleteSession = await _mediator.Send(command);
+
+            if (deleteSession == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(deleteSession);
         }
     }
 

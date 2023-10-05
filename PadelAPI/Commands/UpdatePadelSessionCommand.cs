@@ -6,6 +6,6 @@ namespace PadelAPI.Commands
 {
     public class UpdatePadelSessionCommand : IRequest<bool>
     {
-        public Padel UpdatedPadel {  get; set; }
+        public PadelSession UpdatedPadel {  get; set; }
     }
 }

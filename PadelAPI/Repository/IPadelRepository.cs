@@ -5,10 +5,10 @@ namespace PadelAPI.Repository
 {
     public interface IPadelRepository
     {
-        Task<IEnumerable<Padel>> GetAllPadelSessionsAsync();
-        Task<Padel> GetPadelSessionByIdAsync(Guid id);
-        Task<Padel> CreateNewPadelSessionAsync(Padel padel);
-        Task UpdatePadelSessionAsync(Padel padel);
-
+        Task<IEnumerable<PadelSession>> GetAllPadelSessionsAsync();
+        Task<PadelSession> GetPadelSessionByIdAsync(Guid id);
+        Task<PadelSession> CreateNewPadelSessionAsync(PadelSession padel);
+        Task UpdatePadelSessionAsync(PadelSession padel);
+        Task DeletePadelSessionAsync(Guid id);
     }
 }

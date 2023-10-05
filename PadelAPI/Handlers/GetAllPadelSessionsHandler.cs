@@ -5,7 +5,7 @@ using PadelAPI.Repository;
 
 namespace PadelAPI.Handlers
 {
-    public class GetAllPadelSessionsHandler : IRequestHandler<GetAllPadelSessionsQuery, IEnumerable<Padel>>
+    public class GetAllPadelSessionsHandler : IRequestHandler<GetAllPadelSessionsQuery, IEnumerable<PadelSession>>
     {
         private readonly IPadelRepository _repository;
 
@@ -14,7 +14,7 @@ namespace PadelAPI.Handlers
             _repository = repository;
         }
 
-        public async Task<IEnumerable<Padel>> Handle(GetAllPadelSessionsQuery request, CancellationToken cancellationToken)
+        public async Task<IEnumerable<PadelSession>> Handle(GetAllPadelSessionsQuery request, CancellationToken cancellationToken)
         {
             var padelSessions = await _repository.GetAllPadelSessionsAsync();
             return padelSessions;

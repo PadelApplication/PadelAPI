@@ -3,7 +3,7 @@ using PadelAPI.Models;
 
 namespace PadelAPI.Queries
 {
-    public class GetAllPadelSessionsQuery : IRequest<IEnumerable<Padel>>
+    public class GetAllPadelSessionsQuery : IRequest<IEnumerable<PadelSession>>
     {
     }
 }

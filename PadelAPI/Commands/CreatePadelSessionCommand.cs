@@ -3,7 +3,7 @@ using PadelAPI.Models;
 
 namespace PadelAPI.Commands
 {
-    public class CreatePadelSessionCommand : IRequest<Padel>
+    public class CreatePadelSessionCommand : IRequest<PadelSession>
     {
         public string Title { get; set; }
         public string Date { get; set; }

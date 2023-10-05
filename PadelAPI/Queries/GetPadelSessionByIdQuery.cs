@@ -3,7 +3,7 @@ using PadelAPI.Models;
 
 namespace PadelAPI.Queries
 {
-    public class GetPadelSessionByIdQuery : IRequest<Padel>
+    public class GetPadelSessionByIdQuery : IRequest<PadelSession>
     {
         public Guid Id { get; }
 

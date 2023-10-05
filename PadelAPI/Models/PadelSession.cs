@@ -1,6 +1,6 @@
 ﻿namespace PadelAPI.Models
 {
-    public class Padel
+    public class PadelSession
     {
         public Guid Id { get; set; }
         public string Title { get; set; }
